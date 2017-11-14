@@ -90,23 +90,16 @@ public class JobData {
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-        //String rowChar = null;
-        //String rowCharLower = rowChar.toLowerCase();
-        //String valueLower = value.toLowerCase();
-        //if (row.containsValue(value))
 
         for (HashMap<String, String> row : allJobs) {
             for (String jobValue : row.values())
             {
-                if (jobValue.equalsIgnoreCase(value)) {
+                String jobValueLower = jobValue.toLowerCase();
+                String valueLower = value.toLowerCase();
+
+                if (jobValueLower.contains(valueLower)) {
                 jobs.add(row);
-            }
-            //String aValue = row.get(value);
-            //String aValueLower = aValue.toLowerCase();
-           //String valueLower = value.toLowerCase();
-
-            //if (aValueLower.contains(valueLower)) {
-
+                }
             }
         }
         return jobs;
